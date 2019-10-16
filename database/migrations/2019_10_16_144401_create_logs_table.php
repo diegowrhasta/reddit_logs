@@ -14,6 +14,7 @@ class CreateLogsTable extends Migration
     public function up()
     {
         Schema::create('logs', function (Blueprint $table) {
+            $table->increments('problema_id');
             $table->string('problema');
             $table->string('user');
             $table->string('area');
@@ -23,6 +24,7 @@ class CreateLogsTable extends Migration
             $table->text('descripcion');
             $table->string('fecha_reporte');
             $table->string('fecha_resolucion');
+            $table->string('organization');
             $table->timestamps();
         });
     }

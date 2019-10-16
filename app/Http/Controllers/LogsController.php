@@ -8,8 +8,8 @@ use Illuminate\Http\Request;
 class LogsController extends Controller
 {
     public function start(){
-        $logs = Log::all(); 
-        return view('logs')->with('logs', $logs);
+        $Thelogs = Log::all(); 
+        return view('logs')->with('Thelogs', $Thelogs);
     }
     public function store(Request $request){
         $this->validate($request,[
@@ -33,7 +33,9 @@ class LogsController extends Controller
         $log->descripcion = $request->input('descripcion');
         $log->fecha_reporte = $request->input('fecha_reporte');
         $log->fecha_resolucion = $request->input('fecha_resolucion');
+        $log->organization = 'diego';
         $log->save();
-        return redirect('/logs')->with('message', 'Log creado con éxito');
+        $logs = Log::all(); 
+        return redirect('/logs')->with('message', 'Log creado con éxito')->with('logs',$logs);
     }
 }

@@ -3,11 +3,13 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
         <title>Reddit Corp.</title>
         <style>
             html, body {
                 background-image: url('https://disrv.com/wp-content/uploads/2016/02/Technology-Background-Image.jpg');
+                background-size: cover;
+                background-repeat: no-repeat;
             }
         </style>
     </head>
@@ -22,27 +24,27 @@
             <div class="form-group">
                 {{Form::label('problema','Problema')}}
                 <br>
-                {{Form::text('problema','',['class' => 'form-control', 'placeholder' => 'Código del Problema'])}}
+                {{Form::select('problema',['n' => 'Normal', 'c' => 'Crítico'], null, ['class' => 'form-control'])}}
             </div>
             <div class="form-group">
-                    {{Form::label('user','User')}}
-                    <br>
-                    {{Form::text('user','',['class' => 'form-control', 'placeholder' => '¿Quién está reportando el problema?'])}}
+                {{Form::label('user','User')}}
+                <br>
+                {{Form::select('user',['db' => 'Diego Balderrama', 'is' => 'Ignacio Salgado', 'ac' => 'Antony Chambi', 'rm' => 'Ramiro Menendez', 'ev' => 'Eric Vargas', 'dp' => 'Diego Pardo'], null, ['class' => 'form-control'])}}
             </div>
             <div class="form-group">
-                    {{Form::label('area','Área')}}
-                    <br>
-                    {{Form::text('area','',['class' => 'form-control', 'placeholder' => '¿De qué dirección viene este reporte?'])}}
+                {{Form::label('area','Área')}}
+                <br>
+                {{Form::select('area',['so' => 'Software', 'h' => 'Hardware', 'r' => 'Redes', 'c' => 'Calidad', 'g' => 'Gerencia General', 'se' => 'Seguridad'], null, ['class' => 'form-control'])}}
             </div>
             <div class="form-group">
-                    {{Form::label('responsable','Responsable')}}
-                    <br>
-                    {{Form::text('responsable','',['class' => 'form-control', 'placeholder' => '¿Quién resolverá este problema?'])}}
+                {{Form::label('responsable','Responsable')}}
+                <br>
+                {{Form::select('responsable',['db' => 'Diego Balderrama', 'is' => 'Ignacio Salgado', 'ac' => 'Antony Chambi', 'rm' => 'Ramiro Menendez', 'ev' => 'Eric Vargas', 'dp' => 'Diego Pardo'], null, ['class' => 'form-control'])}}
             </div>
             <div class="form-group">
-                    {{Form::label('estado','Estado')}}
-                    <br>
-                    {{Form::text('estado','',['class' => 'form-control', 'placeholder' => '¿En qué estado se encuentra el problema?'])}}
+                {{Form::label('estado','Estado')}}
+                <br>
+                {{Form::select('estado',['p' => 'Pendiente', 'r' => 'Resuelto', 'i' => 'En progreso' ], null, ['class' => 'form-control'])}}
             </div>
             <div class="form-group">
                     {{Form::label('equipo','Equipo')}}
@@ -67,20 +69,25 @@
             <center>{{ Form::submit('Submit', ['class' => 'btn btn-primary'])}}</center>
         {!! Form::close() !!}
         <center><h1>Lista de Logs</h1></center>
-        @if(count($logs) > 1)
-            @foreach($logs as $log)
-                <div class="well">
-                    <h3>{{$log->problema}}</h3>
-                    <h3>{{$log->user}}</h3>
-                    <h3>{{$log->area}}</h3>
-                    <h3>{{$log->responsable}}</h3>
-                    <h3>{{$log->estado}}</h3>
-                    <h3>{{$log->equipo}}</h3>
-                    <h3>{{$log->descripcion}}</h3>
-                    <small>Fecha reporte: {{$log->fecha_reporte}}</small>
-                    <small>Fecha resolución: {{$log->fecha_resolucion}}</small> 
-                </div>
+        @if(count($Thelogs) >= 1)
+        <div class='container'>
+            @foreach($Thelogs as $log)
+                @if($log->organization == 'diego')
+                <h2>Log {{$log->problema_id}}</h2>
+                    <div class="well">
+                        <h3>{{$log->problema}}</h3>
+                        <h3>{{$log->user}}</h3>
+                        <h3>{{$log->area}}</h3>
+                        <h3>{{$log->responsable}}</h3>
+                        <h3>{{$log->estado}}</h3>
+                        <h3>{{$log->equipo}}</h3>
+                        <h3>{{$log->descripcion}}</h3>
+                        <h3>Fecha reporte: {{$log->fecha_reporte}}</h3>
+                        <h3>Fecha resolución: {{$log->fecha_resolucion}}</h3> 
+                    </div>
+                @endif
             @endforeach
+        </div>
         @else
             <center><p>No hay logs registrados</p><center>
         @endif

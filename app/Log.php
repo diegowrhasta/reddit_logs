@@ -7,10 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Log extends Model
 {
     protected $table = 'logs';
-    protected $primaryKey = 'problema';
+    protected $primaryKey = 'problema_id';
 
     protected $fillable = [
-        'user', 'area', 'responsable', 'estado', 'equipo', 'descripcion', 'fecha_reporte', 'fecha_resolucion',
+        'problema','user', 'area', 'responsable', 'estado', 'equipo', 'descripcion', 'fecha_reporte', 'fecha_resolucion', 'organization'
     ];
     
     protected $hidden = [
