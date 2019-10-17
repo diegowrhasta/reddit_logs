@@ -44,7 +44,7 @@
             <div class="form-group">
                 {{Form::label('estado','Estado')}}
                 <br>
-                {{Form::select('estado',['Pendiente' => 'Pendiente', 'Resuelto' => 'Resuelto', 'i' => 'En progreso' ], null, ['class' => 'form-control'])}}
+                {{Form::select('estado',['Pendiente' => 'Pendiente', 'Resuelto' => 'Resuelto', 'En Progreso' => 'En progreso' ], null, ['class' => 'form-control'])}}
             </div>
             <div class="form-group">
                     {{Form::label('equipo','Equipo')}}
