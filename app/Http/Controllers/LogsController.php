@@ -21,7 +21,6 @@ class LogsController extends Controller
             'equipo' =>  'required',
             'descripcion' =>  'required',
             'fecha_reporte' =>  'required',
-            'fecha_resolucion' =>  'required'
         ]);
         $log = new Log;
         $log->problema = $request->input('problema');
@@ -32,7 +31,12 @@ class LogsController extends Controller
         $log->equipo = $request->input('equipo');
         $log->descripcion = $request->input('descripcion');
         $log->fecha_reporte = $request->input('fecha_reporte');
-        $log->fecha_resolucion = $request->input('fecha_resolucion');
+        if(is_null($log->fecha_resolucion)){
+            $log->fecha_resolucion = 'TBD';
+        }
+        else{
+            $log->fecha_resolucion = $request->input('fecha_resolucion');
+        }
         $log->organization = 'diego';
         $log->save();
         $logs = Log::all(); 

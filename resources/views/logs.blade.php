@@ -59,7 +59,7 @@
             <div class="form-group">
                     {{Form::label('fecha_reporte','Fecha Reporte')}}
                     <br>
-                    {{Form::text('fecha_reporte','',['class' => 'form-control', 'placeholder' => 'Fecha en que se reportó el problema'])}}
+                    {{Form::date('fecha_reporte', \Carbon\Carbon::now())}}
             </div>
             <div class="form-group">
                     {{Form::label('fecha_resolucion','Fecha Resolución')}}
