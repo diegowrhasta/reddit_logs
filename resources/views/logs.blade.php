@@ -64,7 +64,7 @@
             <div class="form-group">
                     {{Form::label('fecha_resolucion','Fecha Resolución')}}
                     <br>
-                    {{Form::text('fecha_resolucion','',['class' => 'form-control', 'placeholder' => 'Fecha en que se solucionó el problema'])}}
+                    {{Form::date('fecha_resolucion', \Carbon\Carbon::now())}}
             </div>
             <center>{{ Form::submit('Submit', ['class' => 'btn btn-primary'])}}</center>
         {!! Form::close() !!}
