@@ -24,27 +24,27 @@
             <div class="form-group">
                 {{Form::label('problema','Problema')}}
                 <br>
-                {{Form::select('problema',['n' => 'Normal', 'c' => 'Crítico'], null, ['class' => 'form-control'])}}
+                {{Form::select('problema',['Normal' => 'Normal', 'Crítico' => 'Crítico'], null, ['class' => 'form-control'])}}
             </div>
             <div class="form-group">
                 {{Form::label('user','User')}}
                 <br>
-                {{Form::select('user',['db' => 'Diego Balderrama', 'is' => 'Ignacio Salgado', 'ac' => 'Antony Chambi', 'rm' => 'Ramiro Menendez', 'ev' => 'Eric Vargas', 'dp' => 'Diego Pardo'], null, ['class' => 'form-control'])}}
+                {{Form::select('user',['Diego Balderrama' => 'Diego Balderrama', 'Ignacio Salgado' => 'Ignacio Salgado', 'Antony Chambi' => 'Antony Chambi', 'Ramiro Menendez' => 'Ramiro Menendez', 'Eric Vargas' => 'Eric Vargas', 'Diego Pardo' => 'Diego Pardo'], null, ['class' => 'form-control'])}}
             </div>
             <div class="form-group">
                 {{Form::label('area','Área')}}
                 <br>
-                {{Form::select('area',['so' => 'Software', 'h' => 'Hardware', 'r' => 'Redes', 'c' => 'Calidad', 'g' => 'Gerencia General', 'se' => 'Seguridad'], null, ['class' => 'form-control'])}}
+                {{Form::select('area',['Software' => 'Software', 'Hardware' => 'Hardware', 'Redes' => 'Redes', 'Calidad' => 'Calidad', 'Gerencia General' => 'Gerencia General', 'Seguridad' => 'Seguridad'], null, ['class' => 'form-control'])}}
             </div>
             <div class="form-group">
                 {{Form::label('responsable','Responsable')}}
                 <br>
-                {{Form::select('responsable',['db' => 'Diego Balderrama', 'is' => 'Ignacio Salgado', 'ac' => 'Antony Chambi', 'rm' => 'Ramiro Menendez', 'ev' => 'Eric Vargas', 'dp' => 'Diego Pardo'], null, ['class' => 'form-control'])}}
+                {{Form::select('responsable',['Diego Balderrama' => 'Diego Balderrama', 'Ignacio Salgado' => 'Ignacio Salgado', 'Antony Chambi' => 'Antony Chambi', 'Ramiro Menendez' => 'Ramiro Menendez', 'Eric Vargas' => 'Eric Vargas', 'Diego Pardo' => 'Diego Pardo'], null, ['class' => 'form-control'])}}
             </div>
             <div class="form-group">
                 {{Form::label('estado','Estado')}}
                 <br>
-                {{Form::select('estado',['p' => 'Pendiente', 'r' => 'Resuelto', 'i' => 'En progreso' ], null, ['class' => 'form-control'])}}
+                {{Form::select('estado',['Pendiente' => 'Pendiente', 'Resuelto' => 'Resuelto', 'i' => 'En progreso' ], null, ['class' => 'form-control'])}}
             </div>
             <div class="form-group">
                     {{Form::label('equipo','Equipo')}}
@@ -75,15 +75,15 @@
                 @if($log->organization == 'diego')
                 <h2>Log {{$log->problema_id}}</h2>
                     <div class="well">
-                        <h3>{{$log->problema}}</h3>
-                        <h3>{{$log->user}}</h3>
-                        <h3>{{$log->area}}</h3>
-                        <h3>{{$log->responsable}}</h3>
-                        <h3>{{$log->estado}}</h3>
-                        <h3>{{$log->equipo}}</h3>
-                        <h3>{{$log->descripcion}}</h3>
-                        <h3>Fecha reporte: {{$log->fecha_reporte}}</h3>
-                        <h3>Fecha resolución: {{$log->fecha_resolucion}}</h3> 
+                        <h3>Problema:</h3>{{$log->problema}}
+                        <h3>User:</h3>{{$log->user}}
+                        <h3>Área:</h3>{{$log->area}}
+                        <h3>Responsable:</h3>{{$log->responsable}}
+                        <h3>Estado:</h3>{{$log->estado}}
+                        <h3>Equipo:</h3>{{$log->equipo}}
+                        <h3>Descripción:</h3>{{$log->descripcion}}
+                        <h3>Fecha reporte:</h3>{{$log->fecha_reporte}}
+                        <h3>Fecha resolución:</h3>{{$log->fecha_resolucion}}
                     </div>
                 @endif
             @endforeach
